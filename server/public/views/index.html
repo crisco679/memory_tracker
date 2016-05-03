@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html ng-app="memoryApp">
-  <head>
-    <meta charset="utf-8">
-    <title>Memory Tracker</title>
-    <script src="vendor/angular/angular.min.js"></script>
-    <script src="vendor/angular-route/angular-route.min.js"></script>
-    <script src="../assets/scripts/client.min.js"></script>
-    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="views/style.css">
-    <base href="/" />
-  </head>
-  <body class="container-fluid">
-    <header>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/">Logout</a></li>
-        <li><a href="/register">Register</a></li>
-        <li><a href="/memories">Memories</a></li>
-      </ul>
-    </header>
-    <div>
-      <ng-view></ng-view>
-    </div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Memory Tracker</title>
+  <script src="vendor/angular/angular.min.js"></script>
+  <script src="vendor/angular-route/angular-route.min.js"></script>
+  <script src="../assets/scripts/client.min.js"></script>
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="views/style.css">
+  <base href="/" />
+</head>
+<body class="container-fluid">
+  <header>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/">Logout</a></li>
+      <li><a href="/register">Register</a></li>
+      <li><a href="/memories">Memories</a></li>
+    </ul>
+  </header>
+  <div>
+    <ng-view></ng-view>
+  </div>
+</body>
 </html>

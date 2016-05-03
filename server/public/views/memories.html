@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Memories</title>
-  </head>
-  <body>
-    <h1>Memories</h1>
-    <div class="well" ng-repeat="memory in memories ">
-      {{memory.memoryName}}:
-      {{memory.memoryDescription}}
+<head>
+  <meta charset="utf-8">
+  <title>Memories</title>
+</head>
+<body>
+  <h1>Memories</h1>
+  <div class="well" ng-repeat="memory in memories ">
+    {{memory.memoryName}}:
+    {{memory.memoryDescription}}:
+    <button class="btn btn-primary" ng-click="removeMemory(memory)">Delete Memory</button>
+  
   </div>
-  </body>
+</body>
 </html>

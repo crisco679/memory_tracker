@@ -1,5 +1,4 @@
 var app = angular.module('memoryApp', ['ngRoute']);
-
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
   $routeProvider
   .when('/', {
@@ -21,13 +20,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     templateUrl: 'views/memories.html',
     controller: 'MemoriesController as memory',
   })
-
   $locationProvider.html5Mode(true);
-
-
 }])
-
-
 app.controller('MainController',  ['$scope','$http', function($scope, $http){
   $scope.memories = [];
   var fetchMemories = function(){
@@ -43,12 +37,9 @@ app.controller('MainController',  ['$scope','$http', function($scope, $http){
 $scope.addMemory = function(memory){
   console.log('add memory function', memory);
   $http.post('/store', memory).then(fetchMemories());
-
-
 }
   fetchMemories();
 }]);
-
 
 app.controller('LoginController', function(){
 
@@ -56,6 +47,7 @@ app.controller('LoginController', function(){
 app.controller('RegisterController', function(){
 
 })
+
 app.controller('MemoriesController', ['$scope', '$http', function($scope, $http){
   $scope.memories = [];
   var fetchMemories = function(){
@@ -68,6 +60,13 @@ app.controller('MemoriesController', ['$scope', '$http', function($scope, $http)
       return response.data;
   })
 };
+$scope.removeMemory = function(profile){
+  console.log("profile param for removeMemory", profile);
+  var id = profile._id;
+  console.log("id", id);
+  $http.delete('/memories/' + id).then(function(serverResponse){
+    fetchMemories();
+  });
+};
   fetchMemories();
-
-}])
+}]);
