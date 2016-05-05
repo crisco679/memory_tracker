@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 
 
 
+
 router.post('/store', function(request, response){
   var Memory = new model({
     memoryName: request.body.memoryName,
@@ -43,6 +44,7 @@ router.delete('/memories/data/:id', function(request, response){
 router.get('/', function(request, response){
   response.sendFile(path.join(__dirname, '../public/views/index.html'))
 })
+
 
 
 module.exports = router;

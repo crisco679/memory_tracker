@@ -9,8 +9,10 @@
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="views/style.css">
 </head>
+
+<a href="http://localhost:3000/home">Home</a>
+<h1>Memories</h1>
 <body ng-controller="MemoriesController">
-  <h1>Memories</h1>
   <div class="well" ng-repeat="memory in memories ">
     {{memory.memoryName}} |
     {{memory.memoryDescription}}

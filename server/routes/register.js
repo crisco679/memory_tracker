@@ -15,13 +15,24 @@ router.post('/', function(request, response, next){
       console.log(err);
       next(err);
     }else{
-        response.redirect('/login');
-      }
+      response.redirect('/');
+    }
+
   })
 });
-router.get('/login', function(request, response, next){
-  response.json(request.isAuthenticated());
-});
+
+// router.get('/checkIsAuthenticated', function(request, response, next){
+//   // response.send(request.isAuthenticated());
+//   response.send(request.user);
+//
+//   if(!request.user){
+//     console.log('no one logged in');
+//   } else {
+//     console.log('logged in');
+//   }
+//
+// });
+
 
 
 module.exports = router;
