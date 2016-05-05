@@ -2,8 +2,18 @@ var router = require('express').Router();
 var path = require('path');
 var model = require('../models/model.js');
 var mongoose = require('mongoose');
+var passport = require('passport');
 
+// router.get('/', function(request, response, next){
+//   response.sendFile(path.join(__dirname, '../public/views/login.html'));
+// });
 
+router.post('/',
+  passport.authenticate('local', {
+    successRedirect: '/home',
+    failureRedirect: '/'
+  })
+);
 
 
 router.post('/store', function(request, response){
@@ -45,6 +55,20 @@ router.get('/', function(request, response){
   response.sendFile(path.join(__dirname, '../public/views/index.html'))
 })
 
+
+router.post('/',
+  passport.authenticate('local', {
+    successRedirect: '/home',
+    failureRedirect: '/'
+  })
+);
+router.get('/*', function(request, response, next){
+	if(request.isAuthenticated()){
+		next() //User is logged in, carry on.
+	} else {
+		response.redirect('/login') //Not logged in, send back.
+	}
+});
 
 
 module.exports = router;
