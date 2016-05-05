@@ -32,7 +32,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 app.controller('MainController',  ['$scope','$http', function($scope, $http){
   $scope.memories = [];
   var fetchMemories = function(){
-      $http.get('/memories').then(function(response){
+      $http.get('/memories/data').then(function(response){
       console.log('response from fetchMemories', response);
       if(response.status !== 200){
         console.log('Failed to fetch tickets from the API');
@@ -58,7 +58,7 @@ app.controller('RegisterController', ['$scope', '$http', function($scope, $http)
 app.controller('MemoriesController', ['$scope', '$http', function($scope, $http){
   $scope.memories = [];
   var fetchMemories = function(){
-      $http.get('/memories').then(function(response){
+      $http.get('/memories/data').then(function(response){
       console.log('response from fetchMemories in memories.html', response);
       if(response.status !== 200){
         console.log('Failed to fetch tickets from the API');
@@ -71,7 +71,7 @@ $scope.removeMemory = function(profile){
   console.log("profile param for removeMemory", profile);
   var id = profile._id;
   console.log("id", id);
-  $http.delete('/memories/' + id).then(function(serverResponse){
+  $http.delete('/memories/data/' + id).then(function(serverResponse){
     fetchMemories();
   });
 };

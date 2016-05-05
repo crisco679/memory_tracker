@@ -14,6 +14,9 @@ router.post('/store', function(request, response){
   Memory.save()
 });
 router.get('/memories', function(request, response){
+  response.sendFile(path.join(__dirname, '../public/views/memories.html'))
+})
+router.get('/memories/data', function(request, response){
     model.find({}).exec(function(err, memories){
     if(err){
       console.log('Error', err);
@@ -24,7 +27,7 @@ router.get('/memories', function(request, response){
 router.get('/home', function(request, response){
   response.sendFile(path.join(__dirname, '../public/views/home.html'))
 })
-router.delete('/memories/:id', function(request, response){
+router.delete('/memories/data/:id', function(request, response){
   console.log('Deleting requested profile id', request.params.id);
   model.findOneAndRemove({_id: request.params.id}, function(err, memory){
     if(err){
@@ -36,6 +39,7 @@ router.delete('/memories/:id', function(request, response){
     }
   });
 })
+
 router.get('/', function(request, response){
   response.sendFile(path.join(__dirname, '../public/views/index.html'))
 })
