@@ -6,10 +6,19 @@
 </head>
 <body>
   <h1>Login</h1>
-  <label>Username</label>
-  <input type="text" />
-  <label>Password</label>
-  <input type="text" />
-  <button class="btn btn-primary">Login</button>
+  <form action = "/login" method="POST">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+    </div>
+    <div>
+      <input type="submit" value="Log In" />
+      <a href ="/register">Register</a>
+    </div>
+  </form>
 </body>
 </html>

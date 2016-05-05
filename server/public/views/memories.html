@@ -7,8 +7,8 @@
 <body>
   <h1>Memories</h1>
   <div class="well" ng-repeat="memory in memories ">
-    {{memory.memoryName}}:
-    {{memory.memoryDescription}}:
+    {{memory.memoryName}} |
+    {{memory.memoryDescription}}
     <button class="btn btn-primary" ng-click="removeMemory(memory)">Delete Memory</button>
   </div>
 </body>

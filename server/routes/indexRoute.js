@@ -2,6 +2,9 @@ var router = require('express').Router();
 var path = require('path');
 var model = require('../models/model.js');
 var mongoose = require('mongoose');
+
+
+
 router.post('/store', function(request, response){
   var Memory = new model({
     memoryName: request.body.memoryName,
@@ -18,6 +21,9 @@ router.get('/memories', function(request, response){
     response.send(JSON.stringify(memories));
   })
 })
+router.get('/home', function(request, response){
+  response.sendFile(path.join(__dirname, '../public/views/home.html'))
+})
 router.delete('/memories/:id', function(request, response){
   console.log('Deleting requested profile id', request.params.id);
   model.findOneAndRemove({_id: request.params.id}, function(err, memory){
@@ -33,4 +39,6 @@ router.delete('/memories/:id', function(request, response){
 router.get('/', function(request, response){
   response.sendFile(path.join(__dirname, '../public/views/index.html'))
 })
+
+
 module.exports = router;

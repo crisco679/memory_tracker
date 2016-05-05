@@ -6,10 +6,18 @@
 </head>
 <body>
   <h1>Register</h1>
-  <label>Enter a username</label>
-  <input type="text" />
-  <label>Enter a password</label>
-  <input type="text" />
-  <button class="btn btn-primary">Create Account</button>
+  <form action = "/register" method="POST">
+    <div>
+      <label for="username">Username</label>
+      <input  type="text" name="username" id="username"/>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input  type="password" name="password" id="password" />
+    </div>
+    <div>
+      <input type="submit" value="Register"/>
+    </div>
+  </form>
 </body>
 </html>

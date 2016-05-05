@@ -2,12 +2,12 @@ var app = angular.module('memoryApp', ['ngRoute']);
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
   $routeProvider
   .when('/', {
-    templateUrl: 'views/home.html',
-    controller: 'MainController as home'
-  })
-  .when('/login', {
     templateUrl: 'views/login.html',
     controller: 'LoginController as login'
+  })
+  .when('/home', {
+    templateUrl: 'views/home.html',
+    controller: 'MainController as home'
   })
   .when('/logout', {
     templateUrl: 'views/home.html',
@@ -16,9 +16,16 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     templateUrl: 'views/register.html',
     controller: 'RegisterController as register',
   })
+  .when('/register/login', {
+    templateUrl: 'views/login.html',
+    controller: 'LoginController as login'
+  })
   .when('/memories', {
     templateUrl: 'views/memories.html',
     controller: 'MemoriesController as memory',
+  })
+  .when('/success', {
+    templateUrl: 'views/success.html'
   })
   $locationProvider.html5Mode(true);
 }])
@@ -44,9 +51,9 @@ $scope.addMemory = function(memory){
 app.controller('LoginController', function(){
 
 })
-app.controller('RegisterController', function(){
+app.controller('RegisterController', ['$scope', '$http', function($scope, $http){
 
-})
+}])
 
 app.controller('MemoriesController', ['$scope', '$http', function($scope, $http){
   $scope.memories = [];
