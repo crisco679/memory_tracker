@@ -13,7 +13,7 @@
 <a href="/home">Home</a>
 <h1>Memories</h1>
 <body ng-controller="MemoriesController">
-  <div class="well" ng-repeat="memory in memories ">
+  <div class="memoryBank well" ng-repeat="memory in memories ">
     {{memory.memoryName}} |
     {{memory.memoryDescription}}
     <button class="btn btn-primary" ng-click="removeMemory(memory)">Delete Memory</button>

@@ -10,8 +10,7 @@ var flash = require('connect-flash');
 // });
 
 
-// passport.authenticate('local', { successFlash: 'Welcome!' });
-// passport.authenticate('local', { failureFlash: 'Invalid username or password.' });
+
 
 router.post('/store', function(request, response){
   console.log(request.user);
@@ -58,19 +57,20 @@ router.get('/', function(request, response){
 router.post('/',
   passport.authenticate('local', {
     successRedirect: '/home',
-    successFlash: true,
+    // successFlash: 'Welcome!',
     failureRedirect: '/',
-    failureFlash: true
+    // failureFlash: 'Invalid username or password'
   })
 );
 
-router.get('/*', function(request, response, next){
-	if(request.isAuthenticated()){
-		next() //User is logged in, carry on.
-	} else {
-		response.redirect('/') //Not logged in, send back.
-	}
-});
+
+// router.get('/*', function(request, response, next){
+// 	if(request.isAuthenticated()){
+// 		next() //User is logged in, carry on.
+// 	} else {
+// 		response.redirect('/') //Not logged in, send back.
+// 	}
+// });
 
 
 module.exports = router;
