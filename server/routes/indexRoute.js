@@ -3,21 +3,21 @@ var path = require('path');
 var model = require('../models/model.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var flash = require('connect-flash');
 
 // router.get('/', function(request, response, next){
 //   response.sendFile(path.join(__dirname, '../public/views/login.html'));
 // });
 
-router.post('/',
-  passport.authenticate('local', {
-    successRedirect: '/home',
-    failureRedirect: '/'
-  })
-);
 
+// passport.authenticate('local', { successFlash: 'Welcome!' });
+// passport.authenticate('local', { failureFlash: 'Invalid username or password.' });
 
 router.post('/store', function(request, response){
+  console.log(request.user);
+  console.log(request.session);
   var Memory = new model({
+    userId: request.user.id,
     memoryName: request.body.memoryName,
     memoryDescription: request.body.memoryDescription
   });
@@ -28,7 +28,7 @@ router.get('/memories', function(request, response){
   response.sendFile(path.join(__dirname, '../public/views/memories.html'))
 })
 router.get('/memories/data', function(request, response){
-    model.find({}).exec(function(err, memories){
+    model.find({userId : request.user.id}).exec(function(err, memories){
     if(err){
       console.log('Error', err);
     }
@@ -55,18 +55,20 @@ router.get('/', function(request, response){
   response.sendFile(path.join(__dirname, '../public/views/index.html'))
 })
 
-
 router.post('/',
   passport.authenticate('local', {
     successRedirect: '/home',
-    failureRedirect: '/'
+    successFlash: true,
+    failureRedirect: '/',
+    failureFlash: true
   })
 );
+
 router.get('/*', function(request, response, next){
 	if(request.isAuthenticated()){
 		next() //User is logged in, carry on.
 	} else {
-		response.redirect('/login') //Not logged in, send back.
+		response.redirect('/') //Not logged in, send back.
 	}
 });
 

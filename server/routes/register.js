@@ -21,17 +21,6 @@ router.post('/', function(request, response, next){
   })
 });
 
-// router.get('/checkIsAuthenticated', function(request, response, next){
-//   // response.send(request.isAuthenticated());
-//   response.send(request.user);
-//
-//   if(!request.user){
-//     console.log('no one logged in');
-//   } else {
-//     console.log('logged in');
-//   }
-//
-// });
 
 
 
