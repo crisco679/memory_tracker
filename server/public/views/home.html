@@ -1,7 +1,7 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html ng-app="memoryApp">
 <head>
-  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
   <title>Memories</title>
   <script src="vendor/angular/angular.min.js"></script>
   <script src="vendor/angular-route/angular-route.min.js"></script>
@@ -9,16 +9,22 @@
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="views/style.css">
 </head>
-<body ng-controller="MainController">
-  <a href="/logout" target="_self">Logout</a>
+<body class="container" ng-controller="MainController">
+  <ul class="header">
+  <li><a href="/logout" target="_self">Logout</a></li>
+    <li><a href="/memories">Memories</a></li>
+  </ul>
   <div class="container">
     <h2>Shall I remember something for you?</h2>
   <div class="container">
-    <div>Memory Title: <input type="text" ng-model="memory.memoryName"></div>
-    <div>Memory Description:<br /> <textarea rows="4" cols="50" type ="text" ng-model="memory.memoryDescription"></textarea></div>
+    <div class="container">
+    <div>Memory Title: <input class="memoryTitle" type="text" ng-model="memory.memoryName"></div>
+    <div class="memoryDescription">Memory Description:<br /> <textarea rows="8" cols="90" type ="text" ng-model="memory.memoryDescription"></textarea></div>
   </div>
+  </div>
+  <div class="buttonAndLink">
     <button class="btn btn-primary" ng-click="addMemory(memory)">Create Memory</button>
-      <a href="/memories">Memories</a>
-  </div>
+    </div>
+    </div>
 </body>
 </html>

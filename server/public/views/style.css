@@ -9,6 +9,7 @@ div{
 ul{
   list-style-type: none;
   display: -webkit-box;
+  margin-left: 400px;
 }
 
 li{
@@ -17,6 +18,10 @@ li{
 /*Login Page*/
 .loginHeading{
   text-align: center;
+  background-color: #AFD2E9;
+  margin: 0px;
+  padding: 50px;
+  width: 100%;
 }
 .loginForm{
   width: 30%;
@@ -55,6 +60,12 @@ form{
   border: 1px solid #ddd;
   border: 1px solid rgba(86,61,124,.2);
 }
-.container{
-  position: relative;
+.buttonAndLink{
+  margin-left: 289px;
+}
+.header{
+  margin-top: 35px;
+}
+.memoryTitle{
+  width: auto;
 }

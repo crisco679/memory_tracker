@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="memoryApp">
 <head>
-  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
   <title>Memory Tracker</title>
   <script src="vendor/angular/angular.min.js"></script>
   <script src="vendor/angular-route/angular-route.min.js"></script>
@@ -12,19 +12,15 @@
   <base href="/" />
 </head>
 <body class="container-fluid">
-  <header>
-    <ul>
-      <!-- <li><a href="/home">Home</a></li> -->
-      <li><a href="/">Login</a></li>
-      <li><a href="/logout" target="_self">Logout</a></li>
-      <li><a href="/register">Register</a></li>
-       <i class ="fa fa-copyright" title = "Copyright"></i>
-      <!-- <li><a href="/memories">Memories</a></li> -->
-    </ul>
-  </header>
-  <div>
     <ng-view></ng-view>
-  </div>
-
+  <footer>
+  <ul>
+    <!-- <li><a href="/home">Home</a></li> -->
+    <li><a href="/">Login</a></li>
+    <li><a href="/logout" target="_self">Logout</a></li>
+    <li><a href="/register">Register</a></li>
+  </ul>
+  <i class ="fa fa-copyright" title = "Copyright">Copyright</i>
+</footer>
 </body>
 </html>
