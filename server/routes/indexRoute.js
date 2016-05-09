@@ -3,18 +3,16 @@ var path = require('path');
 var model = require('../models/model.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var flash = require('connect-flash');
 
-// router.get('/', function(request, response, next){
-//   response.sendFile(path.join(__dirname, '../public/views/login.html'));
-// });
-
-
-
-
+router.get('/logout', function(request, response){
+  console.log('Logging out!!!!');
+  request.logout();
+  response.redirect('/');
+  // response.clearCookie('secret');
+    });
 router.post('/store', function(request, response){
-  console.log(request.user);
-  console.log(request.session);
+  console.log("request.user", request.user);
+  console.log("request.session", request.session);
   var Memory = new model({
     userId: request.user.id,
     memoryName: request.body.memoryName,
@@ -34,9 +32,9 @@ router.get('/memories/data', function(request, response){
     response.send(JSON.stringify(memories));
   })
 })
-router.get('/home', function(request, response){
-  response.sendFile(path.join(__dirname, '../public/views/home.html'))
-})
+// router.get('/home', function(request, response){
+//   response.sendFile(path.join(__dirname, '../public/views/home.html'))
+// })
 router.delete('/memories/data/:id', function(request, response){
   console.log('Deleting requested profile id', request.params.id);
   model.findOneAndRemove({_id: request.params.id}, function(err, memory){
@@ -50,27 +48,20 @@ router.delete('/memories/data/:id', function(request, response){
   });
 })
 
+
+
 router.get('/', function(request, response){
   response.sendFile(path.join(__dirname, '../public/views/index.html'))
 })
 
+
 router.post('/',
   passport.authenticate('local', {
-    successRedirect: '/home',
-    // successFlash: 'Welcome!',
+    successRedirect: '/loginSecure/home',
     failureRedirect: '/',
-    // failureFlash: 'Invalid username or password'
   })
 );
 
-
-// router.get('/*', function(request, response, next){
-// 	if(request.isAuthenticated()){
-// 		next() //User is logged in, carry on.
-// 	} else {
-// 		response.redirect('/') //Not logged in, send back.
-// 	}
-// });
 
 
 module.exports = router;

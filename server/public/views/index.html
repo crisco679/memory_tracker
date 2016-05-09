@@ -5,9 +5,10 @@
   <title>Memory Tracker</title>
   <script src="vendor/angular/angular.min.js"></script>
   <script src="vendor/angular-route/angular-route.min.js"></script>
-  <script src="../assets/scripts/client.min.js"></script>
+  <script src="assets/scripts/client.min.js"></script>
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="views/style.css">
+  <link rel ="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css"/>
   <base href="/" />
 </head>
 <body class="container-fluid">
@@ -15,13 +16,15 @@
     <ul>
       <!-- <li><a href="/home">Home</a></li> -->
       <li><a href="/">Login</a></li>
-      <li><a href="/">Logout</a></li>
+      <li><a href="/logout" target="_self">Logout</a></li>
       <li><a href="/register">Register</a></li>
+       <i class ="fa fa-copyright" title = "Copyright"></i>
       <!-- <li><a href="/memories">Memories</a></li> -->
     </ul>
   </header>
   <div>
     <ng-view></ng-view>
   </div>
+
 </body>
 </html>

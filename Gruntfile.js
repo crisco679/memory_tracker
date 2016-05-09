@@ -29,7 +29,11 @@ module.exports = function(grunt) {
                    "angular/angular.min.js.map",
                    "angular/angular-csp.css",
                    "angular-route/angular-route.min.js",
-                   "bootstrap/dist/css/bootstrap.min.css"
+                   "bootstrap/dist/css/bootstrap.min.css",
+                   "font-awesome/css/font-awesome.min.css",
+                   "font-awesome/fonts/fontawesome-webfont.woff2",
+                   "font-awesome/fonts/fontawesome-webfont.woff",
+                   "font-awesome/fonts/fontawesome-webfont.tff"
                ],
                "dest": "server/public/vendor/"
            }

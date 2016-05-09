@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html ng-app="memoryApp">
 <head>
   <meta charset="utf-8">
@@ -10,12 +10,14 @@
   <link rel="stylesheet" href="views/style.css">
 </head>
 <body ng-controller="MainController">
-  <a href="/">Logout</a>
+  <a href="/logout" target="_self">Logout</a>
   <div class="container">
     <h2>Shall I remember something for you?</h2>
-    <div>Memory Title: <input type="text" ng-model="home.memoryName"></div>
-    <div>Memory Description:<br /> <textarea rows="4" cols="50" type ="text" ng-model="home.memoryDescription"></textarea></div>
-    <button class="btn btn-primary" ng-click="addMemory(home)">Create Memory</button>
+  <div class="container">
+    <div>Memory Title: <input type="text" ng-model="memory.memoryName"></div>
+    <div>Memory Description:<br /> <textarea rows="4" cols="50" type ="text" ng-model="memory.memoryDescription"></textarea></div>
+  </div>
+    <button class="btn btn-primary" ng-click="addMemory(memory)">Create Memory</button>
       <a href="/memories">Memories</a>
   </div>
 </body>

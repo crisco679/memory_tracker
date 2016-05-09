@@ -2,34 +2,18 @@ var app = angular.module('memoryApp', ['ngRoute']);
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
   $routeProvider
   .when('/', {
-    templateUrl: 'views/login.html',
-    controller: 'LoginController as login'
+    templateUrl: 'views/login.html'
   })
-  .when('/home', {
-    templateUrl: 'views/home.html',
-    controller: 'MainController as home'
-  })
-  .when('/logout', {
-    templateUrl: 'views/home.html',
-  })
+
   .when('/register', {
-    templateUrl: 'views/register.html',
-    controller: 'RegisterController as register',
+    templateUrl: 'views/register.html'
   })
-  .when('/register/login', {
-    templateUrl: 'views/login.html',
-    controller: 'LoginController as login'
-  })
-  .when('/memories', {
-    templateUrl: 'views/memories.html',
-    controller: 'MemoriesController as memory',
-  })
-  .when('/success', {
-    templateUrl: 'views/success.html'
-  })
+
+
   $locationProvider.html5Mode(true);
 }])
 app.controller('MainController',  ['$scope','$http', function($scope, $http){
+  $scope.memory = {};
   $scope.memories = [];
   var fetchMemories = function(){
       $http.get('/memories/data').then(function(response){
@@ -44,16 +28,17 @@ app.controller('MainController',  ['$scope','$http', function($scope, $http){
 $scope.addMemory = function(memory){
   console.log('add memory function', memory);
   $http.post('/store', memory).then(fetchMemories());
+  $scope.memory = {}
 }
   fetchMemories();
 }]);
 
-app.controller('LoginController', function(){
-
-})
-app.controller('RegisterController', ['$scope', '$http', function($scope, $http){
-
-}])
+// app.controller('LoginController', function(){
+//
+// })
+// app.controller('RegisterController', ['$scope', '$http', function($scope, $http){
+//
+// }])
 
 app.controller('MemoriesController', ['$scope', '$http', function($scope, $http){
   $scope.memories = [];

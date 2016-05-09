@@ -7,8 +7,8 @@ var session = require('express-session');
 var localStrategy = require('passport-local').Strategy;
 var User = require('./models/user');
 var flash = require('connect-flash');
-// var Login = require('./routes/loginRoute');
 var register = require('./routes/register');
+var loginSecure = require('./routes/loginSecure')
 var app = express();
 
 
@@ -24,32 +24,25 @@ mongoDB.once('open', function(){
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
-// app.configure(function() {
-//   app.use(express.cookieParser('secret'));
-//   app.use(express.session({ cookie: { maxAge: 60000 }}));
-//   app.use(flash());
-// });
 
 app.use(session({
   secret: 'secret',
   resave: true,
   saveUninitialized: false,
-  cookie: {maxAge: 600000, secure: false}
+  cookie: {maxAge: 6000000, secure: false}
 }));
-// app.use(flash())
+
 
 passport.serializeUser(function(user, done){
-  console.log('serializing');
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done){
-  console.log('deserializing');
   User.findById(id, function(err, user){
     if(err){
       done(err);
     }
-    console.log('found user', user);
+    // console.log('found user', user);
     done(null, user);
   });
 });
@@ -87,12 +80,18 @@ passport.use('local', new localStrategy({
 
 
 //Routes
-app.use(express.static('server/public'))
-app.use('/', index)
-// app.use('/login', Login);
+app.use(express.static('server/public'));
+app.use('/', index);
 app.use('/register', register);
+app.use('/loginSecure', function(request, response, next){
+	if(request.isAuthenticated()){
+		next() //User is logged in, carry on.
+	} else {
+		response.redirect('/') //Not logged in, send back.
+	}})
+app.use('/loginSecure', loginSecure);
 
-//Server
+//serverResponse
 var server = app.listen(3000, function(){
   var port = server.address().port
   console.log('Listening on port', port);
