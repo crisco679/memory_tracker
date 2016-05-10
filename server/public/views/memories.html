@@ -9,14 +9,16 @@
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="views/style.css">
 </head>
-
-<a href="/loginSecure/home">Home</a>
+<body id="memoryBody" ng-controller="MemoriesController">
+<a href="/loginSecure/home">Remember something</a>
+<div id="memoryHeading">
+<!-- <img src="views/memoryTitle2.jpg" /> -->
 <h1>Memories</h1>
-<body ng-controller="MemoriesController">
-  <div class="memoryBank well" ng-repeat="memory in memories ">
-    {{memory.memoryName}} |
-    {{memory.memoryDescription}}
-    <button class="btn btn-primary" ng-click="removeMemory(memory)">Delete Memory</button>
+</div>
+  <div class="memoryBank" ng-repeat="memory in memories ">
+    <h3 class="memoryPageTitle">{{memory.memoryName}}</h3> <br />
+    <p class="memoryPageDescription">{{memory.memoryDescription}}</p>
+    <button  class="btn btn-danger btn-sm" ng-click="removeMemory(memory)">Delete Memory</button>
   </div>
 </body>
 </html>
