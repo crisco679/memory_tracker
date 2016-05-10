@@ -8,11 +8,9 @@ router.get('/logout', function(request, response){
   console.log('Logging out!!!!');
   request.logout();
   response.redirect('/');
-  // response.clearCookie('secret');
 });
 router.post('/store', function(request, response){
-  console.log("request.user", request.user);
-  console.log("request.session", request.session);
+
   var Memory = new model({
     userId: request.user.id,
     memoryName: request.body.memoryName,
