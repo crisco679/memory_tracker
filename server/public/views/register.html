@@ -5,21 +5,23 @@
   <title>Register</title>
 </head>
 <body>
-  <h1 class="registerHeading">Register</h1>
-  <div class="registerForm well">
-  <form action = "/register" method="POST">
-    <div>
-      <label for="username">Username</label>
-      <input  type="text" name="username" id="username"/>
+  <div class="registerBody">
+    <h1 class="registerHeading">Register</h1>
+    <div class="registerForm well">
+      <form action = "/register" method="POST">
+        <div>
+          <label for="username">Username</label>
+          <input  type="text" name="username" id="username"/>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input  type="password" name="password" id="password"/>
+        </div>
+        <div>
+          <input type="submit" value="Register"/>
+        </div>
+      </form>
     </div>
-    <div>
-      <label for="password">Password</label>
-      <input  type="password" name="password" id="password" />
-    </div>
-    <div>
-      <input type="submit" value="Register"/>
-    </div>
-  </form>
-</div>
+  </div>
 </body>
 </html>

@@ -10,16 +10,15 @@
   <link rel="stylesheet" href="views/style.css">
 </head>
 <body id="memoryBody" ng-controller="MemoriesController">
-<a href="/loginSecure/home">Remember something</a>
-<div id="memoryHeading">
-<!-- <img src="views/memoryTitle2.jpg" /> -->
-<h1 class="memoriesPageHeading">Memories</h1>
-</div>
+  <a class="linkToHome" href="/loginSecure/home">Remember something else</a>
+  <div id="memoryHeading">
+    <h1 class="memoriesPageHeading">Memories</h1>
+  </div>
   <div class="memoryBank" ng-repeat="memory in memories ">
     <h2 class="memoryPageTitle">{{memory.memoryName}}</h2> <br />
     <p class="memoryPageDescription">{{memory.memoryDescription}}</p>
     <button  class="btn btn-danger btn-sm" ng-click="removeMemory(memory)">Erase</button>
-
+    <hr />
   </div>
 </body>
 </html>

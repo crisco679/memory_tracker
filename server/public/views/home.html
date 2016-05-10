@@ -9,22 +9,24 @@
   <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="views/style.css">
 </head>
-<body class="container" ng-controller="MainController">
-  <ul class="header">
-  <li><a href="/logout" target="_self">Logout</a></li>
-    <li><a href="/memories">Memories</a></li>
-  </ul>
-  <div class="container">
-    <h2>Shall I remember something for you?</h2>
-  <div class="container">
+<body id="homeBody" class="container" ng-controller="MainController">
+  <div>
+    <ul class="header">
+      <li><a href="/logout" target="_self">Logout</a></li>
+      <li><a href="/loginSecure/memories">Memories</a></li>
+    </ul>
     <div class="container">
-    <div>Memory Title: <input class="memoryTitle" type="text" ng-model="memory.memoryName"></div>
-    <div class="memoryDescription">Memory Description:<br /> <textarea rows="8" cols="90" type ="text" ng-model="memory.memoryDescription"></textarea></div>
-  </div>
-  </div>
-  <div class="buttonAndLink">
-    <button class="btn btn-primary" ng-click="addMemory(memory)">Create Memory</button>
+      <h2></h2>
+      <div class="container">
+        <div class="homeInputs container">
+          <div>Memory Title: <input class="memoryTitle" type="text" ng-model="memory.memoryName"></div>
+          <div class="memoryDescription">Memory Description:<br /> <textarea rows="8" cols="90" type ="text" ng-model="memory.memoryDescription"></textarea></div>
+        </div>
+      </div>
+      <div class="justAButton">
+        <button class="btn btn-primary" ng-click="addMemory(memory)">Create Memory</button>
+      </div>
     </div>
-    </div>
+  </div>
 </body>
 </html>

@@ -26,9 +26,16 @@ li{
   margin: auto;
 }
 .loginBody{
-  
+
   width: 50%;
   margin: auto;
+}
+.registerBody{
+  width: 50%;
+  margin: auto;
+}
+.registerForm{
+  width: 30%;
 }
 form{
   text-align: center;
@@ -64,7 +71,7 @@ form{
   border: 1px solid #ddd;
   border: 1px solid rgba(86,61,124,.2);
 }
-.buttonAndLink{
+.justAButton{
   margin-left: 289px;
 }
 .header{
@@ -72,6 +79,7 @@ form{
 }
 .memoryTitle{
   width: auto;
+  margin: auto;
 }
 .container-fluid{
   padding: 0px;
@@ -82,14 +90,13 @@ footer{
 a{
   margin: 5px;
 }
-#memoryHeading{
-  text-align: center;
-  font-family: "Aguafina Script", Times, serif;
-}
-
 .memoriesPageHeading{
   margin-bottom: 100px;
   font-size: 55px;
+}
+#memoryHeading{
+  text-align: center;
+  font-family: "Aguafina Script", cursive, serif;
 }
 #memoryBody{
   background-image: url('parchment.jpg');
@@ -98,10 +105,29 @@ a{
 #indexBody{
   background-image: url('parchment.jpg');
 }
+
+#homeBody{
+  background-image: url('parchment.jpg')
+}
 .memoryPageTitle{
-  font-family: "Aguafina Script", Times, serif;
+  font-family: "Aguafina Script", cursive, serif;
 }
 .memoryPageDescription{
-  font-family: "Yoko Smile", Times, serif;
+  font-family: cursive, serif;
   font-size: 20px;
+}
+.linkToHome{
+  font-size: 20px;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.homeInputs{
+  text-align: center;
+}
+.aboutParagraph{
+  width: 50%;
+  margin: auto;
+}
+.aboutBody{
+ text-align: center;
 }
