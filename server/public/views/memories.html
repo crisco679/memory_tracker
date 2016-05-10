@@ -16,9 +16,10 @@
 <h1>Memories</h1>
 </div>
   <div class="memoryBank" ng-repeat="memory in memories ">
-    <h3 class="memoryPageTitle">{{memory.memoryName}}</h3> <br />
+    <h2 class="memoryPageTitle">{{memory.memoryName}}</h2> <br />
     <p class="memoryPageDescription">{{memory.memoryDescription}}</p>
-    <button  class="btn btn-danger btn-sm" ng-click="removeMemory(memory)">Delete Memory</button>
+    <button  class="btn btn-danger btn-sm" ng-click="removeMemory(memory)">Erase</button>
+
   </div>
 </body>
 </html>

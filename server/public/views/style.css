@@ -1,7 +1,6 @@
 input{
   display: -webkit-box;
 }
-
 div{
   margin: 10px;
 }
@@ -17,7 +16,7 @@ li{
 /*Login Page*/
 .loginHeading{
   text-align: center;
-  background-color: #AFD2E9;
+  background-color: 
   margin: 0px;
   padding: 50px;
   width: 100%;
@@ -86,6 +85,7 @@ a{
   text-align: center;
   font-family: "Aguafina Script", Times, serif;
 }
+
 h1{
   margin-bottom: 100px;
   font-size: 55px;
@@ -93,4 +93,14 @@ h1{
 #memoryBody{
   background-image: url('parchment.jpg');
   background-color: #C3B299
+}
+#indexBody{
+  background-image: url('parchment.jpg');
+}
+.memoryPageTitle{
+  font-family: "Aguafina Script", Times, serif;
+}
+.memoryPageDescription{
+  font-family: "Yoko Smile", Times, serif;
+  font-size: 20px;
 }
