@@ -3,6 +3,7 @@ var path = require('path');
 var model = require('../models/model.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var moment = require('moment');
 
 router.get('/logout', function(request, response){
   console.log('Logging out!!!!');
@@ -14,8 +15,11 @@ router.post('/store', function(request, response){
   var Memory = new model({
     userId: request.user.id,
     memoryName: request.body.memoryName,
-    memoryDescription: request.body.memoryDescription
+    memoryDescription: request.body.memoryDescription,
+    dateCreated: request.body.dateCreated
   })
+  Memory.dateCreatedString  = moment(MemorydateCreated).format('LLLL')
+
   console.log('Memory variable', Memory);
   Memory.save();
 })

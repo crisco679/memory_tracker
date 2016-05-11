@@ -3,18 +3,19 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $routeProvider
   .when('/', {
     templateUrl: 'views/login.html'
-  });
+  })
   .when('/register', {
     templateUrl: 'views/register.html'
-  });
+  })
   .when('/about', {
     templateUrl: 'views/about.html'
-  });
+  })
   $locationProvider.html5Mode(true);
 }])
 app.controller('MainController',  ['$scope','$http', function($scope, $http){
   $scope.memory = {};
   $scope.memories = [];
+
   var fetchMemories = function(){
     $http.get('/memories/data').then(function(response){
       console.log('response from fetchMemories', response);

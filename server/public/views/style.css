@@ -1,3 +1,7 @@
+@font-face{
+  font-family: "Aguafina Script";
+  src: url('./assets/fonts/aguafina-script/AguafinaScript-Regular.ttf');
+}
 input{
   display: -webkit-box;
 }
@@ -16,7 +20,6 @@ li{
 /*Login Page*/
 .loginHeading{
   text-align: center;
-  background-color:
   margin: 0px;
   padding: 50px;
   width: 100%;
@@ -62,7 +65,6 @@ form{
   text-align: center;
 }
 
-
 [class*="col-"] {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -94,6 +96,9 @@ a{
   margin-bottom: 100px;
   font-size: 55px;
 }
+.memoryPageTitle{
+  font-family: "Aguafina Script", cursive, serif;
+}
 #memoryHeading{
   text-align: center;
   font-family: "Aguafina Script", cursive, serif;
@@ -109,9 +114,7 @@ a{
 #homeBody{
   background-image: url('parchment.jpg')
 }
-.memoryPageTitle{
-  font-family: "Aguafina Script", cursive, serif;
-}
+
 .memoryPageDescription{
   font-family: cursive, serif;
   font-size: 20px;
