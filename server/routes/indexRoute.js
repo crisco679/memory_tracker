@@ -18,7 +18,7 @@ router.post('/store', function(request, response){
     memoryDescription: request.body.memoryDescription,
     dateCreated: request.body.dateCreated
   })
-  Memory.dateCreatedString  = moment(MemorydateCreated).format('LLLL')
+  Memory.dateCreatedString  = moment(Memory.dateCreated).format('LLLL')
 
   console.log('Memory variable', Memory);
   Memory.save();

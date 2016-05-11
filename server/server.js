@@ -9,7 +9,6 @@ var User = require('./models/user')
 var register = require('./routes/register')
 var loginSecure = require('./routes/loginSecure')
 var app = express()
-
 //Database
 var mongoUri = 'mongodb://localhost/memory_tracker';
 var mongoDB = mongoose.connect(mongoUri).connection;

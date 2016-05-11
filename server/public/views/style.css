@@ -26,6 +26,7 @@ li{
 }
 .loginForm{
   width: 30%;
+  min-width: 216px;
   margin: auto;
 }
 .loginBody{
@@ -39,6 +40,7 @@ li{
 }
 .registerForm{
   width: 30%;
+  min-width: 216px;
 }
 form{
   text-align: center;
