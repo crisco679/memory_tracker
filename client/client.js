@@ -32,6 +32,7 @@ app.controller('MainController',  ['$scope','$http', function($scope, $http){
       if(response.status !== 200){
         console.log('Failed to fetch tickets from the API');
       }
+      fetchMemoryCount()
       $scope.memories=response.data;
       return response.data;
     })
@@ -40,6 +41,7 @@ app.controller('MainController',  ['$scope','$http', function($scope, $http){
     console.log('add memory function', memory);
     $http.post('/store', memory).then(fetchMemories());
     $scope.memory = {}
+
   }
   fetchMemoryCount();
   fetchMemories();
