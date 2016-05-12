@@ -15,7 +15,17 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 app.controller('MainController',  ['$scope','$http', function($scope, $http){
   $scope.memory = {};
   $scope.memories = [];
-  $scope.numberOfMemories = 0;
+  $scope.memoryCount = 0;
+  var fetchMemoryCount = function(){
+    $http.get('/memories/count').then(function(response){
+      console.log('response from memories/count', response);
+      if(response.status !== 200){
+        console.log('Failed to fetch memory count');
+      }
+      $scope.memoryCount = response.data;
+      return response.data;
+    })
+  }
   var fetchMemories = function(){
     $http.get('/memories/data').then(function(response){
       console.log('response from fetchMemories', response);
@@ -30,18 +40,18 @@ app.controller('MainController',  ['$scope','$http', function($scope, $http){
     console.log('add memory function', memory);
     $http.post('/store', memory).then(fetchMemories());
     $scope.memory = {}
-    $scope.numberOfMemories++
-
   }
+  fetchMemoryCount();
   fetchMemories();
 }])
 app.controller('MemoriesController', ['$scope', '$http', function($scope, $http){
   $scope.memories = [];
+
   var fetchMemories = function(){
     $http.get('/memories/data').then(function(response){
       console.log('response from fetchMemories in memories.html', response);
       if(response.status !== 200){
-        console.log('Failed to fetch tickets from the API');
+        console.log('Failed to fetch memories from the API');
       }
       $scope.memories=response.data;
       return response.data;

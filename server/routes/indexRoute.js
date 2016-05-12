@@ -10,18 +10,14 @@ router.get('/logout', function(request, response){
   request.logout();
   response.redirect('/');
 });
-var numberOfMemories = 0;
 router.post('/store', function(request, response){
-  numberOfMemories++
   var Memory = new model({
     userId: request.user.id,
     memoryName: request.body.memoryName,
     memoryDescription: request.body.memoryDescription,
-    numberOfMemories: numberOfMemories,
     dateCreated: request.body.dateCreated
   })
   Memory.dateCreatedString  = moment(Memory.dateCreated).format('LLLL')
-  console.log("request.body.numberOfMemories", request.body.numberOfMemories);
   console.log('Memory variable', Memory);
   Memory.save();
 })
@@ -33,6 +29,15 @@ router.get('/memories/data', function(request, response){
     response.send(JSON.stringify(memories));
   })
 });
+router.get('/memories/count', function(request, response){
+  model.count({userId : request.user.id}).exec(function(err, memories){
+    if(err){
+      console.log('Error', err);
+    } else {
+      response.send(JSON.stringify(memories));
+    }
+  })
+})
 router.delete('/memories/data/:id', function(request, response){
   console.log('Deleting requested profile id', request.params.id);
   model.findOneAndRemove({_id: request.params.id}, function(err, memory){
