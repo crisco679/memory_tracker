@@ -10,8 +10,8 @@ var register = require('./routes/register')
 var loginSecure = require('./routes/loginSecure')
 var app = express()
 //Database
-var mongoUri = 'mongodb://localhost/memory_tracker';
-var mongoDB = process.env.MONGODB_URI;
+var mongoUri = process.env.MONGODB_URI;
+var mongoDB = mongoose.connect(mongoUri).connection;
 mongoDB.on('error', function(err){
   console.log('MongoDB connection error', err);
 });
