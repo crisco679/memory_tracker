@@ -10,16 +10,18 @@ router.get('/logout', function(request, response){
   request.logout();
   response.redirect('/');
 });
+var numberOfMemories = 0;
 router.post('/store', function(request, response){
-
+  numberOfMemories++
   var Memory = new model({
     userId: request.user.id,
     memoryName: request.body.memoryName,
     memoryDescription: request.body.memoryDescription,
+    numberOfMemories: numberOfMemories,
     dateCreated: request.body.dateCreated
   })
   Memory.dateCreatedString  = moment(Memory.dateCreated).format('LLLL')
-
+  console.log("request.body.numberOfMemories", request.body.numberOfMemories);
   console.log('Memory variable', Memory);
   Memory.save();
 })

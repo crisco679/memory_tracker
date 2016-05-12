@@ -8,6 +8,7 @@ var aMemory = new Schema ({
     type: Date,
     default: new Date()
   },
+  numberOfMemories: Number,
   dateCreatedString: String
 });
 

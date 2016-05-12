@@ -13,7 +13,7 @@
   <div>
     <ul class="header">
       <li><a href="/logout" target="_self">Logout</a></li>
-      <li><a href="/loginSecure/memories">Memories</a></li>
+      <li><a href="/loginSecure/memories">Memories({{memories}})</a></li>
     </ul>
     <div class="container">
       <h2></h2>
@@ -23,6 +23,7 @@
           <div class="memoryDescription">Memory Description:<br /> <textarea rows="8" cols="90" type ="text" ng-model="memory.memoryDescription"></textarea></div>
         </div>
       </div>
+
       <div class="justAButton">
         <button class="btn btn-primary" ng-click="addMemory(memory)">Create Memory</button>
       </div>

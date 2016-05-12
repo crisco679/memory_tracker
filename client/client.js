@@ -15,7 +15,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 app.controller('MainController',  ['$scope','$http', function($scope, $http){
   $scope.memory = {};
   $scope.memories = [];
-
+  $scope.numberOfMemories = 0;
   var fetchMemories = function(){
     $http.get('/memories/data').then(function(response){
       console.log('response from fetchMemories', response);
@@ -30,6 +30,8 @@ app.controller('MainController',  ['$scope','$http', function($scope, $http){
     console.log('add memory function', memory);
     $http.post('/store', memory).then(fetchMemories());
     $scope.memory = {}
+    $scope.numberOfMemories++
+
   }
   fetchMemories();
 }])
