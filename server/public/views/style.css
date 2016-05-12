@@ -1,6 +1,6 @@
 @font-face{
   font-family: "Aguafina Script";
-  src: url('./assets/fonts/aguafina-script/AguafinaScript-Regular.ttf');
+  src: url('../assets/fonts/aguafina-script/AguafinaScript-Regular.ttf');
 }
 input{
   display: -webkit-box;
@@ -135,4 +135,9 @@ a{
 }
 .aboutBody{
  text-align: center;
+ font-size: 18px;
+}
+
+i{
+  margin: 30px;
 }
