@@ -11,7 +11,7 @@ var loginSecure = require('./routes/loginSecure')
 var app = express()
 //Database
 var mongoUri = 'mongodb://localhost/memory_tracker';
-var mongoDB = mongoose.connect(mongoUri).connection;
+var mongoDB = process.env.MONGODB_URI;
 mongoDB.on('error', function(err){
   console.log('MongoDB connection error', err);
 });
