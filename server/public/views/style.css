@@ -114,7 +114,10 @@ a{
 }
 
 #homeBody{
-  background-image: url('parchment.jpg')
+  background-image: url('parchment.jpg');
+}
+#registerBackground{
+  background-image: url('parchment.jpg');
 }
 
 .memoryPageDescription{
